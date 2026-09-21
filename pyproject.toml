@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gitnanny"
+version = "0.1.0"
+description = "AI-powered nanny that reviews your git diffs before you push: leaked secrets, bugs, junk code."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Marinadec" }]
+keywords = ["git", "security", "secrets", "code-review", "llm", "cli"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "anthropic>=0.40",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+gitnanny = "gitnanny.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Marinadec-kk/gitnanny_for_vibecoders"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
