@@ -1,0 +1,1 @@
+# gitnanny_for_vibecoders
